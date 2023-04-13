@@ -142,7 +142,7 @@ public class EjerciciosPila {
             pila.apilar(aux);
 
         }
-    return pila2;
+    return pila;
     }
 
     private Pila posicionPar(Pila pila) {
