@@ -70,4 +70,67 @@ public class EjerciciosCola {
             c.encolar(aux);
         }
     }
+    public Cola Ejercicio5(Cola c1, Cola c2){
+        int aux1;
+        int aux2;
+        int numele;
+        int num1=0;
+        int num2= 0;
+        if(c1.getNumElementos()< c2.getNumElementos()){
+            numele = c1.getNumElementos();
+        }else{
+            numele = c2.getNumElementos();
+        }
+        Cola colamenores = new Cola();
+for (int i =0;i<numele;i++){
+    aux1 = c1.desencolar();
+            aux2 = c2.desencolar();
+            if(aux2<aux1){
+                colamenores.encolar(aux2);
+                c1.encolar(aux1);
+                num2++;
+            }else{
+                colamenores.encolar(aux1);
+                c2.encolar(aux2);
+                num1++;
+            }
+        }
+        for(int i=0;i< numele- num1;i++){
+            aux1 = c1.desencolar();
+            c1.encolar(aux1);
+        }
+        for(int i=0;i< numele - num2;i++){
+            aux2 = c2.desencolar();
+            c2.encolar(aux2);
+        }
+        return colamenores;
+    }
+    public Alumno Ejercicio6(ColaAlumnos cola){
+        int num=0;
+        int numele= cola.getNumElementos();
+        Alumno aux;
+        Alumno alumno = new Alumno();
+        for (int i=0;i<numele;i++){
+            aux= cola.desencolar();
+            if(aux.GetCalificacion()>5){
+                cola.encolar(aux);
+                if(aux.GetCalificacion()>alumno.GetCalificacion()){
+                    alumno = aux;
+                }
+            }
+        }
+        return alumno;
+    }
+    public void separarCola(Cola c, Pila p){
+        int aux;
+        int numele= c.getNumElementos();
+        for(int i =1;i<=numele;i++){
+            aux = c.desencolar();
+            if(i%2!=0){
+                p.apilar(aux);
+            }else{
+                c.encolar(aux);
+            }
+        }
+    }
 }
